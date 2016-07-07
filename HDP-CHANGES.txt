@@ -1,0 +1,78 @@
+HDP-2.4 is based on Apache HBase 1.1.2
+
+Following are the changes on top of Apache HBase 1.1.1
+
+HBASE-14307 Incorrect use of positional read api in HFileBlock (Chris Nauroth)
+HBASE-14963 Remove Guava dependency from HBase client code (ddas)
+HBASE-14947 WALProcedureStore improvements (Matteo Bertozzi)
+HBASE-14843 TestWALProcedureStore.testLoad is flakey (Matteo Bertozz)
+HBASE-14712 Increase MasterProcWALs clean up granularity (Matteo Bertozzi)
+HBASE-14468 Compaction improvements: FIFO compaction policy (Vladimir Rodionov)
+HBASE-14987 Compaction marker whose region name doesn't match current region's needs to be handled
+HBASE-14471 Thrift -  HTTP Error 413 full HEAD if using kerberos authentication
+HBASE-15035 bulkloading hfiles with tags that require splits do not preserve tags (Jonathan Hsieh)
+HBASE-14761 Deletes with and without visibility expression do not delete the matching mutation (Ram)
+HBASE-14575 Relax region read lock for compactions
+HBASE-15022 replication_admin.rb throws undefined method 'getZooKeeperClusterKey' for ZKUtil (Matteo)
+HBASE-14866 VerifyReplication should use peer configuration in peer connection (Gary Helmling)
+HBASE-14928 Start row should be set for query through HBase REST gateway involving globbing option
+HBASE-15014 Fix filterCellByStore in WALsplitter is awful for performance (Elliott Clark)
+HBASE-14432 Procedure V2 - enforce ACL on procedure admin tasks (Stephen Yuan Jiang)
+HBASE-14488 Procedure V2 - shell command to abort a procedure (Stephen Yuan Jiang)
+HBASE-14487 Procedure V2 - shell command to list all procedures (Stephen Yuan Jiang)
+HBASE-14107 Procedure V2 - Administrative Task: Provide an API to List all procedures (Stephen Yuan Jiang)
+HBASE-14108 Procedure V2 - Administrative Task: provide an API to abort a procedure (Stephen Yuan Jiang)
+HBASE-14445 ExportSnapshot does not honor -chmod option
+HBASE-13250 chown of ExportSnapshot does not cover all path and files (He Liangliang)
+HBASE-14280 Bulk Upload from HA cluster to remote HA hbase cluster fails (Ankit Singhal)
+HBASE-14497 Reverse Scan threw StackOverflow caused by readPt checking (Yerui Sun)
+HBASE-14309 Allow load balancer to operate when there is region in transition by adding force flag
+HBASE-14359 HTable#close will hang forever if unchecked error/exception thrown in AsyncProcess#sendMultiAction
+HBASE-14342 Recursive call in RegionMergeTransactionImpl.getJournal()
+HBASE-14314 Metrics for block cache should take region replicas into account
+HBASE-13103 [ergonomics] add region size balancing as a feature of master (Mikhail Antonov)
+HBASE-14367 Add normalization support to shell (Mikhail Antonov)
+HBASE-14578 URISyntaxException during snapshot restore for table with user defined namespace
+HBASE-14581 Znode cleanup throws auth exception in secure mode
+HBASE-14565 Make ZK connection timeout configurable in MiniZooKeeperCluster
+HBASE-14591 Region with reference hfile may split after a forced split in IncreasingToUpperBoundRegionSplitPolicy (Shaohui Liu)
+HBASE-14361 ReplicationSink should create Connection instances lazily
+HBASE-14621 ReplicationLogCleaner stuck on RS crash (Ashu)
+HBASE-14624 BucketCache.freeBlock is too expensive
+HBASE-14475 Region split requests are always audited with hbase user rather than request user
+HBASE-14605 Split fails due to 'No valid credentials' error when SecureBulkLoadEndpoint#start tries to access hdfs
+HBASE-14759 Avoid using Math.abs when selecting SyncRunner in FSHLog
+HBASE-14268 Improve KeyLocker (Hiroshi Ikeda)
+HBASE-14706 RegionLocationFinder should return multiple servernames by top host (Guanghao Zhang)
+HBASE-14463 Severe performance downgrade when parallel reading a single key from BucketCache (Yu Li)
+HBASE-14631 Region merge request should be audited with request user through proper scope of doAs() calls to region observer notifications
+HBASE-14809 Grant / revoke Namespace admin permission to group
+HBASE-14788 Splitting a region does not support the hbase.rs.evictblocksonclose config when closing source region
+HBASE-14207 Region was hijacked and remained in transition when RS failed to open a region and later regionplan changed to new RS on retry (Pankaj Kumar)
+HBASE-14885 NullPointerException in HMaster#normalizeRegions() due to missing TableDescriptor
+HBASE-14893 Race between mutation on region and region closing operation leads to NotServingRegionException
+HBASE-14799 Commons-collections object deserialization remote command execution vulnerability (Andrew Purtell)
+HBASE-14632 Region server aborts due to unguarded dereference of Reader
+
+HBASE-11658 Piped commands to hbase shell should return non-zero if shell command failed
+HBASE-11940 Add utility scripts for snapshotting / restoring all tables in cluster
+BUG-35784 Update httpcore version to 4.2.5
+BUG-28682 HBase - Address Security Issues in Jetty 6.1.26
+BUG-22418 Update jackson version to 1.9.13 
+BUG-29025 Windows incompatibility with unicode (Chinese characters)
+
+Following are the changes on top of Apache HBase 1.1.2
+HBASE-14449 Rewrite deadlock prevention for concurrent connection close
+HBASE-14258 Make region_mover.rb script case insensitive with regard to hostname
+HBASE-14269 FuzzyRowFilter omits certain rows when multiple fuzzy key exist
+HBASE-14313 After a Connection sees ConnectionClosingException it never recovers (Elliott Clark)
+HBASE-14302 TableSnapshotInputFormat should not create back references when restoring snapshot
+BUG-45027/BUG-45361 Fix hostname used with Kerberos on Dual-Homed clusters.
+HBASE-14536 Balancer & SSH interfering with each other leading to unavailability
+HBASE-14680 Two configs for snapshot timeout and better defaults
+HBASE-14283 Reverse scan doesn’t work with HFile inline index/bloom blocks
+HBASE-15221 Reload the cache on re-tried puts in HTableMultiplexer and adds a close() method to HTableMultiplexer
+HBASE-15232 Handle region location cache mgmt in AsyncProcess for multi()'s
+HBASE-15220 Change two logs in SimpleRegionNormalizer to INFO level
+HBASE-14883 TestSplitTransactionOnCluster#testFailedSplit flakey
+HBASE-14812 Fix ResultBoundedCompletionService deadlock (Elliott Clark)
